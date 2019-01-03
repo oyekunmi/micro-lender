@@ -10,9 +10,9 @@ const routes: Routes = [
     component: HomeComponent,
     // canActivate: [AuthGuard]
     // ,
-    // resolve: {
-    //   isAuthenticated: HomeAuthResolver
-    // }
+    resolve: {
+      isAuthenticated: HomeAuthResolver
+    }
   }
 ];
 
