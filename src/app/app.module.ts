@@ -17,11 +17,11 @@ import {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     SharedModule,
-    AuthModule,
     CoreModule,
     HomeModule,
+    AuthModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
