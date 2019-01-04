@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 
 @Injectable()
 export class JwtService {
 
-  getToken(): String {
-    return window.localStorage['jwtToken'];
+  getToken(): Observable<string | null> {
+    const data = window.localStorage['jwtToken'];
+    return data ? of(data): of(null);
   }
 
   saveToken(token: String) {
