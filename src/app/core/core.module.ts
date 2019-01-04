@@ -5,10 +5,10 @@ import { HttpTokenInterceptor } from './interceptors/http.token.interceptor';
 
 import {
   ApiService,
-  AuthGuard,
   JwtService,
-  // ProfilesService,
-  UserService
+  AuthGuard,
+  UserService,
+  RoleGuard
 } from './services';
 
 @NgModule({
@@ -20,8 +20,8 @@ import {
     ApiService,
     AuthGuard,
     JwtService,
-    // ProfilesService,
-    UserService
+    UserService,
+    RoleGuard,
   ],
   declarations: []
 })
