@@ -6,16 +6,18 @@ import { Observable, of } from 'rxjs';
 export class JwtService {
 
   getToken(): Observable<string | null> {
-    const data = window.localStorage['jwtToken'];
+    const data = localStorage.getItem('jwtToken');
     return data ? of(data): of(null);
   }
 
-  saveToken(token: String) {
-    window.localStorage['jwtToken'] = token;
+  saveToken(token: string): Observable<string> {
+    localStorage.setItem('jwtToken', token);
+    return of(token);
   }
 
-  destroyToken() {
-    window.localStorage.removeItem('jwtToken');
+  destroyToken(): Observable<boolean> {
+    localStorage.removeItem('jwtToken');
+    return of(true);
   }
 
 }
