@@ -6,6 +6,7 @@ import { ListComponent } from './list/list.component';
 import { PreviewComponent } from './preview/preview.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard, RoleGuard } from '../core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   declarations: [CustomerComponent, CreateComponent, ListComponent, PreviewComponent]

@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 // import { FavoriteButtonComponent, FollowButtonComponent } from './buttons';
 import { ListErrorsComponent } from './list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
+import { ContextService } from './context.service';
 
 @NgModule({
   imports: [
@@ -39,6 +40,9 @@ import { ShowAuthedDirective } from './show-authed.directive';
     ListErrorsComponent,
     RouterModule,
     ShowAuthedDirective
+  ],
+  providers: [
+    ContextService
   ]
 })
 export class SharedModule {}
