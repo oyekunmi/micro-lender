@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpTokenInterceptor } from './interceptors/http.token.interceptor';
+import { 
+  HttpTokenInterceptor, 
+  Http401Interceptor 
+} from './interceptors';
 
 import {
   ApiService,
   JwtService, 
   AuthGuard,
   UserService,
-  RoleGuard
+  RoleGuard,
+  CustomerService
 } from './services';
-import { Http401Interceptor } from './interceptors';
 
 @NgModule({
   imports: [
@@ -24,6 +27,7 @@ import { Http401Interceptor } from './interceptors';
     JwtService,
     UserService,
     RoleGuard,
+    CustomerService
   ],
   declarations: []
 })
