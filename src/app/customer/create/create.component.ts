@@ -5,7 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomerService } from 'src/app/core';
 
 @Component({
-  selector: 'customer-create',
+  selector: 'app-customer-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss']
 })
@@ -15,7 +15,7 @@ export class CreateComponent implements OnInit {
   customerForm: FormGroup;
 
   constructor(
-    private appContext: ContextService, 
+    private appContext: ContextService,
     private service: CustomerService
     ) { }
 
@@ -26,13 +26,13 @@ export class CreateComponent implements OnInit {
       firstName: new FormControl(''),
       name: new FormControl('', Validators.required),
       phone: new FormControl('', Validators.required),
-      address: new FormControl('',),
+      address: new FormControl(''),
       email: new FormControl(''),
       gender: new FormControl('')
     });
   }
 
-  createCustomer(){
+  createCustomer() {
     this.service.save(this.customerForm.value);
   }
 

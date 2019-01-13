@@ -20,8 +20,15 @@ export class HomeComponent implements OnInit {
     this.userService.isAuthenticated.subscribe(
       (authenticated) => {
         this.isAuthenticated = authenticated;
+        // if (this.isAuthenticated === false) {
+        //   this.router.navigateByUrl('/');
+        // }
       }
     );
 
+  }
+
+  logout() {
+    this.userService.purgeAuth();
   }
 }
