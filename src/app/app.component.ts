@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
     // listen for auth changes
     this.userService.isAuthenticated.subscribe( x => {
-      x === false ? this.router.navigateByUrl('/') : console.log() ;
+      // x === false ? this.router.navigateByUrl('/') : console.log() ;
     });
   }
 

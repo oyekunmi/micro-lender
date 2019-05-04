@@ -3,6 +3,7 @@ import { ContextService } from 'src/app/shared';
 import { Subject } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomerService } from 'src/app/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-create',
@@ -16,24 +17,28 @@ export class CreateComponent implements OnInit {
 
   constructor(
     private appContext: ContextService,
-    private service: CustomerService
+    private service: CustomerService,
+    private router: Router
     ) { }
 
   ngOnInit() {
     this.appContext.moduleTitle.next('Create Customer');
     this.customerForm = new FormGroup({
-      lastName: new FormControl(''),
-      firstName: new FormControl(''),
-      name: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
+      lastName: new FormControl('Ogundele'),
+      firstName: new FormControl('Oyesola'),
+      name: new FormControl('Oyesola Ogundele', Validators.required),
+      phone: new FormControl('07055896062', Validators.required),
       address: new FormControl(''),
-      email: new FormControl(''),
-      gender: new FormControl('')
+      email: new FormControl('oyekunmi@gmail.com'),
+      gender: new FormControl('Male')
     });
   }
 
   createCustomer() {
-    this.service.save(this.customerForm.value);
+    this.service.save(this.customerForm.value).subscribe(
+      data => { this.router.navigateByUrl('/customer')},
+      err => {}
+    );
   }
 
 }

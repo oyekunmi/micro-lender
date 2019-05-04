@@ -21,6 +21,14 @@ const routes: Routes = [
         data: {
           roles: ['MERCHANT']
         }
+      },
+      {
+        path: 'list',
+        component: CreateComponent,
+        canActivate: [RoleGuard],
+        data: {
+          roles: ['MERCHANT']
+        }
       }
     ]
   }
